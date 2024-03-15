@@ -1,0 +1,62 @@
+:root {
+    --accentOrange: rgb(206,129,66);
+    --accentWhite: #f2f3f5;
+    --text-color: #374958;
+}
+
+.flex {
+    display: flex;
+}
+
+body {
+    margin: 0px;
+}
+
+.centre {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.logo {
+    background-color: var(--accentWhite); 
+    font-size: 2.5rem;
+    padding: 10px 20px;
+    justify-content: space-between;
+    font-weight: 900;
+    border-bottom: solid 2px var(--accentOrange);
+    box-sizing: border-box;
+}
+
+img {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.brand div {
+    color: var(--accentOrange);
+}
+
+.brand span {
+    color: var(--text-color);
+}
+
+.menu {
+    display: flex;
+    justify-content: center; /* This will center the child horizontally */
+    align-items: center; /* This will center the child vertically */
+}
+
+.menu img {
+    height: 2rem;
+    width: 2rem;
+}
+
+.theme {
+    padding: 10px;
+    height: 30px;
+    width: 80px;
+    border-radius: 50px;
+    border: solid 3px var(--accentOrange);
+}
