@@ -4,7 +4,7 @@
     --accentWhiteDark: #e1e3e6;
     --text-color: #374958;
     --task-background: #ddd;
-    --font-size-subheader: 20px;
+    --font-size-subheader: 17px;
     --padding-edges: 20px;
     --padding-edges-2: 40px;
     --padding-edges-3: 60px;
@@ -130,11 +130,19 @@ h2 {
     font-size: var(--font-size-subheader);
 }
 
-.title:hover {
+.title:hover, button:hover {
     background-color: var(--accentWhiteDark);
 }
 
 .title svg {
+    padding-right: 10px;
+}
+
+.projects p {
+    margin: 0px;
+}
+
+.projects svg {
     padding-right: 10px;
 }
 
@@ -144,11 +152,15 @@ h2 {
 }
 
 button {
-    margin-left: var(--padding-edges-3);
+    border-radius: 8px;
+    margin: 0px var(--padding-edges);
+    padding: 10px var(--padding-edges-2);
+    width: calc(100% - 2 * var(--padding-edges));
     font-size: var(--font-size-subheader);
-    border: none;
-    background-color: var(--accentWhite);
+    font-weight: 700;
+    background-color: transparent;
     color: var(--text-color);
+    border: none;
 }
 
 footer {
