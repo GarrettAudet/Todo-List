@@ -1,7 +1,12 @@
 :root {
     --accentOrange: rgb(206,129,66);
     --accentWhite: #f2f3f5;
+    --accentWhiteDark: #e1e3e6;
     --text-color: #374958;
+}
+
+body {
+    font-family: "Alata";
 }
 
 .flex {
@@ -15,7 +20,7 @@ body {
 .centre {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     text-align: center;
 }
 
@@ -25,13 +30,14 @@ body {
     padding: 10px 20px;
     justify-content: space-between;
     font-weight: 900;
-    border-bottom: solid 2px var(--accentOrange);
+    border-bottom: solid 2px var(--text-color);
     box-sizing: border-box;
 }
 
-img {
+.checkmark-image {
     height: 2.5rem;
     width: 2.5rem;
+    color: var(--accentOrange);
 }
 
 .brand div {
@@ -48,15 +54,32 @@ img {
     align-items: center; /* This will center the child vertically */
 }
 
-.menu img {
-    height: 2rem;
-    width: 2rem;
+.menu-image {
+    color: var(--text-color);
+    padding-right: 5px;
 }
 
 .theme {
-    padding: 10px;
-    height: 30px;
-    width: 80px;
-    border-radius: 50px;
-    border: solid 3px var(--accentOrange);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+    width: 50px; /* Width of the switcher */
+    height: 20px; /* Height of the switcher */
+    background-color: var(--accentWhiteDark); /* Background of the switcher */
+    border-radius: 24px; /* Make it round */
+    border: 2px solid var(--text-color);
+    cursor: pointer;
+}
+
+.theme-icon {
+    fill: var(--accentOrange);
+}
+
+.toggle-ball {
+    width: 20px; /* Diameter of the toggle ball */
+    height: 20px; /* Diameter of the toggle ball */
+    background-color: var(--accentOrange); /* Color of the toggle ball */
+    border-radius: 50%; /* Make it round */
+    transition: transform 0.3s ease; /* Smooth transition for moving the ball */ 
 }
