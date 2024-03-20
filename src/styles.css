@@ -4,6 +4,7 @@
     --accentWhiteDark: #e1e3e6;
     --text-color: #374958;
     --task-background: #ddd;
+    --font-size-subheader: 20px;
     --padding-edges: 20px;
     --padding-edges-2: 40px;
     --padding-edges-3: 60px;
@@ -23,6 +24,11 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.centered-flex {
+    display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -119,6 +125,19 @@ h2 {
     color: var(--text-color);
 }
 
+.title p {
+    margin: 0px;
+    font-size: var(--font-size-subheader);
+}
+
+.title:hover {
+    background-color: var(--accentWhiteDark);
+}
+
+.title svg {
+    padding-right: 10px;
+}
+
 .rightPanel {
     flex: 0 0 80%;
     background: var(--task-background);
@@ -126,6 +145,10 @@ h2 {
 
 button {
     margin-left: var(--padding-edges-3);
+    font-size: var(--font-size-subheader);
+    border: none;
+    background-color: var(--accentWhite);
+    color: var(--text-color);
 }
 
 footer {
