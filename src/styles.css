@@ -50,8 +50,8 @@ body {
 
 .menu {
     display: flex;
-    justify-content: center; /* This will center the child horizontally */
-    align-items: center; /* This will center the child vertically */
+    justify-content: center; 
+    align-items: center; 
 }
 
 .menu-image {
@@ -64,10 +64,10 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 6px;
-    width: 50px; /* Width of the switcher */
-    height: 20px; /* Height of the switcher */
-    background-color: var(--accentWhiteDark); /* Background of the switcher */
-    border-radius: 24px; /* Make it round */
+    width: 50px; 
+    height: 20px; 
+    background-color: var(--accentWhiteDark); 
+    border-radius: 24px; 
     border: 2px solid var(--text-color);
     cursor: pointer;
 }
@@ -77,9 +77,13 @@ body {
 }
 
 .toggle-ball {
-    width: 20px; /* Diameter of the toggle ball */
-    height: 20px; /* Diameter of the toggle ball */
-    background-color: var(--accentOrange); /* Color of the toggle ball */
-    border-radius: 50%; /* Make it round */
-    transition: transform 0.3s ease; /* Smooth transition for moving the ball */ 
+    width: 20px; 
+    height: 20px; 
+    background-color: var(--text-color); 
+    border-radius: 50%; 
+    transition: transform 0.3s ease; 
+}
+
+.content {
+
 }
