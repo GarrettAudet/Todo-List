@@ -4,6 +4,9 @@
     --accentWhiteDark: #e1e3e6;
     --text-color: #374958;
     --task-background: #ddd;
+    --padding-edges: 20px;
+    --padding-edges-2: 40px;
+    --padding-edges-3: 60px;
 }
 
 body {
@@ -25,7 +28,7 @@ body {
 .logo {
     background-color: var(--accentWhite); 
     font-size: 2.5rem;
-    padding: 10px 20px;
+    padding: 10px var(--padding-edges);
     justify-content: space-between;
     font-weight: 900;
     border-bottom: solid 2px var(--text-color);
@@ -96,11 +99,33 @@ body {
 
 .leftPanel {
     flex: 0 0 20%;
-    background: var(--task-background);
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin: var(--padding-edges);
+    color: var(--text-color);
+    border-bottom: 2px solid var(--text-color);
+}
+
+.title {
+    border-radius: 8px;
+    margin: 0px var(--padding-edges);
+    padding: 10px var(--padding-edges-2);
+    color: var(--text-color);
 }
 
 .rightPanel {
     flex: 0 0 80%;
+    background: var(--task-background);
+}
+
+button {
+    margin-left: var(--padding-edges-3);
 }
 
 footer {
