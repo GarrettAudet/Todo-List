@@ -2,6 +2,8 @@
     --accentOrange: rgb(206,129,66);
     --accentWhite: #f2f3f5;
     --accentWhiteDark: #e1e3e6;
+    --accentDark: #E2B38D;
+    --accentLight: #EAC9AE;
     --text-color: #374958;
     --task-background: #ddd;
     --font-size-subheader: 17px;
@@ -147,6 +149,14 @@ h2 {
 
 .projects svg {
     padding-right: 10px;
+}
+
+.highlight {
+    background-color: var(--accentLight);
+}
+
+.title.highlight:hover {
+    background-color: var(--accentDark) !important;
 }
 
 .rightPanel {
