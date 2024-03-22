@@ -112,9 +112,12 @@ body {
     flex-direction: column;
 }
 
-h2 {
+h1, h2 {
     margin: var(--padding-edges);
     color: var(--text-color);
+}
+
+h2 {
     border-bottom: 2px solid var(--text-color);
 }
 
@@ -149,6 +152,7 @@ h2 {
 .rightPanel {
     flex: 0 0 80%;
     background: var(--task-background);
+    padding: 10px 30px;
 }
 
 button {
