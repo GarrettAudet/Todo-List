@@ -181,4 +181,15 @@ footer {
     flex-shrink: 0;
     background-color: var(--accentWhite);
     border-top: 2px solid var(--text-color);
+    gap: 10px;
+}
+
+.github-icon {
+    color: var(--accentOrange);
+    transition: transform 0.6s ease;
+    display: inline-block;
+}
+
+.github-icon:hover {
+    transform: rotate(360deg);
 }
