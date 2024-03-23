@@ -60,12 +60,18 @@ body {
 .menu {
     display: flex;
     justify-content: center; 
-    align-items: center; 
+    align-items: center;
+    margin: 0;
+    padding: 0px 10px; 
+    border-radius: 8px;
+}
+
+.menu:hover {
+    background-color: var(--accentWhiteDark);
 }
 
 .menu-image {
     color: var(--text-color);
-    padding-right: 5px;
 }
 
 .theme {
@@ -82,6 +88,7 @@ body {
 }
 
 .theme-icon {
+    padding-left: 4px;
     fill: var(--accentOrange);
 }
 
@@ -91,6 +98,16 @@ body {
     background-color: var(--text-color); 
     border-radius: 50%; 
     transition: transform 0.3s ease; 
+}
+
+.fa-moon {
+    font-size: 1rem; 
+    color: white; 
+    display: none !important; 
+}
+
+body.dark-theme .toggle-ball {
+    transform: translateX(-26px); 
 }
 
 .page-container {
@@ -107,6 +124,10 @@ body {
 
 .leftPanel {
     flex: 0 0 20%;
+}
+
+.leftPanel-hidden {
+    display: none !important;
 }
 
 .home {
@@ -160,10 +181,17 @@ h2 {
 }
 
 .rightPanel {
-    flex: 0 0 80%;
     flex-shrink: 1;
     background: var(--task-background);
     padding: 10px 30px;
+}
+
+.rightPanel-reduced {
+    flex: 0 0 80%;
+}
+
+.rightPanel-full {
+    flex: 0 0 100%;
 }
 
 button {
