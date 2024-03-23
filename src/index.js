@@ -47,13 +47,14 @@ menuOverview();
 
 function initializeThemeSwitching() {
     const themeSwitcher = document.querySelector('.theme');
-    const sunIcon = document.getElementById('theme-icon');
+    const sunIcon = document.querySelector('.theme-icon');
     const moonIcon = document.querySelector('.fa-moon');
     
     themeSwitcher.addEventListener('click', () => {
         document.body.classList.toggle('dark-theme');
         sunIcon.style.display = document.body.classList.contains('dark-theme') ? 'none' : 'block';
         moonIcon.style.display = document.body.classList.contains('dark-theme') ? 'block' : 'none';
+
     });
 }
 

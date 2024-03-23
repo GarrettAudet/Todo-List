@@ -83,7 +83,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 6px;
-    width: 50px; 
+    width: 40px; 
     height: 20px; 
     background-color: var(--accentWhiteDark); 
     border-radius: 24px; 
@@ -92,7 +92,6 @@ body {
 }
 
 .theme-icon {
-    padding-left: 4px;
     fill: var(--accentOrange);
 }
 
@@ -105,13 +104,17 @@ body {
 }
 
 .fa-moon {
+    position: absolute;
+    top: 5%;
+    transform: translate(-40%, -40%);
+    right: 26px;
     font-size: 1rem; 
     color: white; 
-    display: none !important; 
+    display: none; 
 }
 
 body.dark-theme .toggle-ball {
-    transform: translateX(-26px); 
+    transform: translateX(-1px); 
 }
 
 .page-container {
