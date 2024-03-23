@@ -12,6 +12,10 @@
     --padding-edges-3: 60px;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: "Alata";
     margin: 0px;
@@ -123,10 +127,12 @@ body.dark-theme .toggle-ball {
 }
 
 .leftPanel {
+    flex-shrink: 1;
     flex: 0 0 20%;
 }
 
 .leftPanel-hidden {
+    flex-shrink: 1;
     display: none !important;
 }
 
@@ -187,10 +193,12 @@ h2 {
 }
 
 .rightPanel-reduced {
+    flex-shrink: 1;
     flex: 0 0 80%;
 }
 
 .rightPanel-full {
+    flex-shrink: 1;
     flex: 0 0 100%;
 }
 
