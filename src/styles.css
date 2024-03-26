@@ -8,9 +8,14 @@
     --task-background: #ddd;
     --font-size-header: 24px;
     --font-size-subheader: 17px;
+    --font-size-regular: 12px;
     --padding-edges: 20px;
     --padding-edges-2: 40px;
     --padding-edges-3: 60px;
+    --border-calendar: #3BA395;
+    --low-priority: green;
+    --medium-priority: orange;
+    --high-priority: red;
 }
 
 html, body {
@@ -260,14 +265,17 @@ footer {
 
 .card {
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
-    width: 40rem;
-    height: 30rem;
+    width: 30rem;
+    height: 20rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
 }
 
 .card-header{
     color: var(--text-color);
-    font-size: var(--font-size-header);
-    padding: 10px;
+    font-size: var(--font-size-subheader);
+    padding: 10px 20px;
     height: 10%;
     background-color: var(--accentWhite);
     border-bottom: solid 2px var(--accentDark);
@@ -290,13 +298,55 @@ footer {
 }
 
 .task-title, .task-details {
+    font-size: var(--font-size-regular);
+}
+
+.task-title, .task-details, .card-footer {
     border: none;
-    padding: 10px;
+    padding: 10px 20px;
     outline: none;
     resize: none;
 }
 
+.footer-item {
+    gap: 10px;
+}
+
 .card-footer {
     height: 10%;
-    font-size: var(--font-size-subheader);
+    font-size: var(--font-size-regular);
+    color: var(--text-color);
+    justify-content: space-between;
+}
+
+.calendar {
+    color: var(--text-color);
+    font-size: var(--font-size-regular);
+    border: 1px solid var(--border-calendar);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.low {
+    border: 1px solid var(--low-priority);
+}
+
+.medium {
+    border: 1px solid var(--medium-priority);
+}
+
+.high {
+    border: 1px solid var(--high-priority);
+}
+
+.add-task {
+    border: 1px solid var(--text-color);
+}
+
+.calendar, .low, .medium, .high, .add-task {
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-weight: 700;
 }
