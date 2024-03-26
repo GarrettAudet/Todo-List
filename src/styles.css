@@ -301,7 +301,7 @@ footer {
     font-size: var(--font-size-regular);
 }
 
-.task-title, .task-details, .card-footer {
+.task-title, .task-details, .card-footer, .calendar {
     border: none;
     padding: 10px 20px;
     outline: none;
@@ -333,16 +333,36 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 1px solid var(--low-priority);
 }
 
+.low:hover {
+    background-color: var(--low-priority);
+    color: white;
+}
+
 .medium {
     border: 1px solid var(--medium-priority);
+}
+
+.medium:hover {
+    background-color: var(--medium-priority);
+    color: white;
 }
 
 .high {
     border: 1px solid var(--high-priority);
 }
 
+.high:hover {
+    background-color: var(--high-priority);
+    color: white;
+}
+
 .add-task {
     border: 1px solid var(--text-color);
+}
+
+.add-task:hover {
+    background-color: var(--text-color);
+    color: white;
 }
 
 .calendar, .low, .medium, .high, .add-task {
