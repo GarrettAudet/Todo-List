@@ -6,6 +6,7 @@
     --accentLight: #EAC9AE;
     --text-color: #374958;
     --task-background: #ddd;
+    --font-size-header: 24px;
     --font-size-subheader: 17px;
     --padding-edges: 20px;
     --padding-edges-2: 40px;
@@ -23,6 +24,11 @@ body {
 
 .flex {
     display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
 
 .centre {
@@ -192,8 +198,11 @@ h2 {
 
 .rightPanel {
     flex-shrink: 1;
-    background: var(--task-background);
     padding: 10px 30px;
+}
+
+.rightPanel, .card-left {
+    background: var(--task-background);
 }
 
 .rightPanel-reduced {
@@ -239,7 +248,55 @@ footer {
 .overlay-new {
     z-index: 3;
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     backdrop-filter: blur(10px);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.card {
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
+    width: 40rem;
+    height: 30rem;
+}
+
+.card-header{
+    color: var(--text-color);
+    font-size: var(--font-size-header);
+    padding: 10px;
+    height: 10%;
+    background-color: var(--accentWhite);
+    border-bottom: solid 2px var(--accentDark);
+}
+
+.card-container {
+    height: 90%;
+}
+
+.card-container, .card-footer {
+    background-color: white;
+}
+
+.task-title {
+    height: 10%;
+}
+
+.task-details {
+    height: 90%;
+}
+
+.task-title, .task-details {
+    border: none;
+    padding: 10px;
+    outline: none;
+    resize: none;
+}
+
+.card-footer {
+    height: 10%;
+    font-size: var(--font-size-subheader);
 }
