@@ -101,6 +101,7 @@ body {
     background-color: var(--text-color); 
     border-radius: 50%; 
     transition: transform 0.3s ease; 
+    z-index: 2;
 }
 
 .fa-moon {
@@ -165,7 +166,7 @@ h2 {
     font-size: var(--font-size-subheader);
 }
 
-.title:hover, button:hover {
+.title:hover, .project-button:hover {
     background-color: var(--accentWhiteDark);
 }
 
@@ -232,4 +233,13 @@ footer {
 
 .github-icon:hover {
     transform: rotate(360deg);
+}
+
+/* Task UI */
+.overlay-new {
+    z-index: 3;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
 }

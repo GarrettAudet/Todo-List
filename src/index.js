@@ -43,8 +43,6 @@ function menuOverview () {
     });
 };
 
-menuOverview();
-
 function initializeThemeSwitching() {
     const themeSwitcher = document.querySelector('.theme');
     const sunIcon = document.querySelector('.theme-icon');
@@ -58,9 +56,18 @@ function initializeThemeSwitching() {
     });
 }
 
+function appendProject() {
+    const projectSection = document.querySelector('.projects');
+    const addProject = document.querySelector('.add-project');
+    addProject.addEventListener('click', () => {
+
+    });
+}
+
 // Call the above functions when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeHighlighting();
     initializeThemeSwitching();
+    menuOverview();
 });
 
