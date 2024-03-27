@@ -8,7 +8,7 @@
     --task-background: #ddd;
     --font-size-header: 24px;
     --font-size-subheader: 17px;
-    --font-size-regular: 12px;
+    --font-size-regular: 9.2px;
     --padding-edges: 20px;
     --padding-edges-2: 40px;
     --padding-edges-3: 60px;
@@ -272,7 +272,7 @@ footer {
 .card {
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
     width: 30rem;
-    height: 30rem;
+    height: 25rem;
     border-radius: 15px;
     position: relative;
     overflow: hidden;
@@ -315,14 +315,24 @@ footer {
 }
 
 .footer-item {
-    gap: 10px;
+    display: flex;
+    align-items: center; /* Add this if you want to vertically align everything */
 }
 
+.footer-item input {
+    margin: 0;
+}
+ 
 .card-footer {
     height: 10%;
     font-size: var(--font-size-regular);
     color: var(--text-color);
     justify-content: space-between;
+    gap: 5px;
+}
+
+.card-footer div {
+    margin-right: 5px;
 }
 
 .calendar {
@@ -339,7 +349,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 1px solid var(--low-priority);
 }
 
-.low:hover {
+.low:hover, .low:checked {
     background-color: var(--low-priority);
     color: white;
 }
@@ -380,4 +390,53 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .exit-task {
     cursor: pointer;
 }
+
+.priority-radio {
+    display: none;
+}
+
+.priority-label {
+    cursor: pointer;
+    margin-right: 10px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.priority-label, .insert-task {
+    padding: 5px 15px;
+}
+
+.priority-radio:checked + .priority-label {
+    color: white;
+}
+
+/* Specific styles for each priority level */
+.low {
+    background-color: var(--accentWhite);
+    border: 1px solid var(--low-priority);
+}
+
+.low:hover, #low:checked + .low {
+    background-color: var(--low-priority);
+}
+
+.medium {
+    background-color: var(--accentWhite);
+    border: 1px solid var(--medium-priority);
+}
+
+.medium:hover, #medium:checked + .medium {
+    background-color: var(--medium-priority);
+}
+
+.high {
+    background-color: var(--accentWhite);
+    border: 1px solid var(--high-priority);
+}
+
+.high:hover, #high:checked + .high {
+    background-color: var(--high-priority);
+}
+
 
