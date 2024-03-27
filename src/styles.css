@@ -1,3 +1,4 @@
+/* Variables */
 :root {
     --accentOrange: rgb(206,129,66);
     --accentWhite: #f2f3f5;
@@ -8,7 +9,7 @@
     --task-background: #ddd;
     --font-size-header: 24px;
     --font-size-subheader: 17px;
-    --font-size-regular: 9.2px;
+    --font-size-regular: 12px;
     --padding-edges: 20px;
     --padding-edges-2: 40px;
     --padding-edges-3: 60px;
@@ -18,6 +19,7 @@
     --high-priority: red;
 }
 
+/* Global Styles */ 
 html, body {
     overflow-x: hidden;
 }
@@ -27,6 +29,7 @@ body {
     margin: 0px;
 }
 
+/* Utility Classes */
 .flex {
     display: flex;
 }
@@ -53,6 +56,50 @@ body {
     justify-content: space-between;
 }
 
+/* Layout */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftPanel {
+    flex-shrink: 1;
+    flex: 0 0 20%;
+}
+
+.leftPanel-hidden {
+    flex-shrink: 1;
+    display: none !important;
+}
+
+.rightPanel {
+    flex-shrink: 1;
+    padding: 10px 30px;
+}
+
+.rightPanel, .card-left {
+    background: var(--task-background);
+}
+
+.rightPanel-reduced {
+    flex-shrink: 1;
+    flex: 0 0 80%;
+}
+
+.rightPanel-full {
+    flex-shrink: 1;
+    flex: 0 0 100%;
+}
+
+/* Components */
+/* Branding and Navigation */
 .logo {
     background-color: var(--accentWhite); 
     font-size: 2.5rem;
@@ -61,12 +108,6 @@ body {
     font-weight: 900;
     border-bottom: solid 2px var(--text-color);
     box-sizing: border-box;
-}
-
-.checkmark-image {
-    height: 2.5rem;
-    width: 2.5rem;
-    color: var(--accentOrange);
 }
 
 .brand div {
@@ -92,6 +133,12 @@ body {
 
 .menu-image {
     color: var(--text-color);
+}
+
+.checkmark-image {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--accentOrange);
 }
 
 .theme {
@@ -134,31 +181,45 @@ body.dark-theme .toggle-ball {
     transform: translateX(-1px); 
 }
 
-.page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+/* Task Card */
+.overlay-new {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    display: none;
 }
 
-.content {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
+.card {
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
+    width: 35rem;
+    height: 25rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
 }
 
-.leftPanel {
-    flex-shrink: 1;
-    flex: 0 0 20%;
+.card-header{
+    color: var(--text-color);
+    font-size: var(--font-size-subheader);
+    padding: 10px 20px;
+    height: 10%;
+    background-color: var(--accentWhite);
+    border-bottom: solid 2px var(--accentDark);
 }
 
-.leftPanel-hidden {
-    flex-shrink: 1;
-    display: none !important;
+.card-container {
+    height: 90%;
 }
 
-.home {
-    display: flex;
-    flex-direction: column;
+.card-container, .card-footer {
+    background-color: white;
 }
 
 h1, h2 {
@@ -170,6 +231,7 @@ h2 {
     border-bottom: 2px solid var(--text-color);
 }
 
+/* Content */
 .title {
     border-radius: 8px;
     margin: 0px var(--padding-edges);
@@ -206,25 +268,6 @@ h2 {
     background-color: var(--accentDark) !important;
 }
 
-.rightPanel {
-    flex-shrink: 1;
-    padding: 10px 30px;
-}
-
-.rightPanel, .card-left {
-    background: var(--task-background);
-}
-
-.rightPanel-reduced {
-    flex-shrink: 1;
-    flex: 0 0 80%;
-}
-
-.rightPanel-full {
-    flex-shrink: 1;
-    flex: 0 0 100%;
-}
-
 button {
     border-radius: 8px;
     margin: 0px var(--padding-edges);
@@ -237,6 +280,7 @@ button {
     border: none;
 }
 
+/* Footer */
 footer {
     flex-shrink: 0;
     background-color: var(--accentWhite);
@@ -244,55 +288,29 @@ footer {
     gap: 10px;
 }
 
-.github-icon {
-    color: var(--accentOrange);
-    transition: transform 0.6s ease;
-    display: inline-block;
+.footer-item {
+    display: flex;
+    align-items: center; 
+}
+
+.footer-item input {
+    margin: 0;
+}
+ 
+.card-footer {
+    height: 10%;
+    font-size: var(--font-size-regular);
+    color: var(--text-color);
+    justify-content: space-between;
+    gap: 5px;
 }
 
 .github-icon:hover {
     transform: rotate(360deg);
 }
 
-/* Task UI */
-.overlay-new {
-    z-index: 3;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    backdrop-filter: blur(10px);
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    display: none;
-}
-
-.card {
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
-    width: 30rem;
-    height: 25rem;
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-}
-
-.card-header{
-    color: var(--text-color);
-    font-size: var(--font-size-subheader);
-    padding: 10px 20px;
-    height: 10%;
-    background-color: var(--accentWhite);
-    border-bottom: solid 2px var(--accentDark);
-}
-
-.card-container {
-    height: 90%;
-}
-
-.card-container, .card-footer {
-    background-color: white;
+.card-footer div {
+    margin-right: 5px;
 }
 
 .task-title {
@@ -312,27 +330,6 @@ footer {
     padding: 10px 20px;
     outline: none;
     resize: none;
-}
-
-.footer-item {
-    display: flex;
-    align-items: center; /* Add this if you want to vertically align everything */
-}
-
-.footer-item input {
-    margin: 0;
-}
- 
-.card-footer {
-    height: 10%;
-    font-size: var(--font-size-regular);
-    color: var(--text-color);
-    justify-content: space-between;
-    gap: 5px;
-}
-
-.card-footer div {
-    margin-right: 5px;
 }
 
 .calendar {
@@ -372,46 +369,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: white;
 }
 
-.insert-task {
-    border: 1px solid var(--text-color);
-}
-
-.insert-task:hover {
-    background-color: var(--text-color);
-    color: white;
-}
-
-.calendar, .low, .medium, .high, .add-task, .insert-task {
-    border-radius: 4px;
-    padding: 2px 4px;
-    font-weight: 700;
-}
-
-.exit-task {
-    cursor: pointer;
-}
-
-.priority-radio {
-    display: none;
-}
-
-.priority-label {
-    cursor: pointer;
-    margin-right: 10px;
-    border: 2px solid transparent;
-    border-radius: 4px;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.priority-label, .insert-task {
-    padding: 5px 15px;
-}
-
-.priority-radio:checked + .priority-label {
-    color: white;
-}
-
-/* Specific styles for each priority level */
 .low {
     background-color: var(--accentWhite);
     border: 1px solid var(--low-priority);
@@ -439,4 +396,48 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: var(--high-priority);
 }
 
+.insert-task {
+    border: 1px solid var(--text-color);
+}
+
+.insert-task:hover {
+    background-color: var(--text-color);
+    color: white;
+}
+
+.github-icon {
+    color: var(--accentOrange);
+    transition: transform 0.6s ease;
+    display: inline-block;
+}
+
+.exit-task {
+    cursor: pointer;
+}
+
+.calendar, .low, .medium, .high, .add-task, .insert-task {
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-weight: 700;
+}
+
+.priority-radio {
+    display: none;
+}
+
+.priority-label {
+    cursor: pointer;
+    margin-right: 10px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.priority-label, .insert-task {
+    padding: 5px 15px;
+}
+
+.priority-radio:checked + .priority-label {
+    color: white;
+}
 

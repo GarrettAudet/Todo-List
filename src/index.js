@@ -13,7 +13,6 @@ class TaskManager {
             { element: document.querySelector('.home-all-task'), title: 'All Tasks' },
             { element: document.querySelector('.home-today'), title: 'Today' },
             { element: document.querySelector('.home-week'), title: 'Next 7 Days' },
-            { element: document.querySelector('.home-important'), title: 'Important' }
         ];
 
         const updateTitleAndHighlight = (title, activeButton) => {
