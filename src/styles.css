@@ -20,6 +20,7 @@
 }
 
 /* Global Styles */ 
+
 html, body {
     overflow-x: hidden;
 }
@@ -66,36 +67,38 @@ body {
 .content {
     flex: 1;
     display: flex;
-    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .leftPanel {
-    flex-shrink: 1;
-    flex: 0 0 20%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 300px;
 }
 
 .leftPanel-hidden {
-    flex-shrink: 1;
     display: none !important;
-}
-
-.rightPanel {
-    flex-shrink: 1;
-    padding: 10px 30px;
 }
 
 .rightPanel, .card-left {
     background: var(--task-background);
 }
 
+.rightPanel-reduced, .rightPanel-full {
+    padding: 10px 30px;
+}
+
 .rightPanel-reduced {
     flex-shrink: 1;
     flex: 0 0 80%;
+    max-width: 80%;
 }
 
 .rightPanel-full {
     flex-shrink: 1;
     flex: 0 0 100%;
+    max-width: 100%;
 }
 
 /* Components */
@@ -453,3 +456,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: white;
 }
 
+/* Use media queries for responsiveness */
+@media (max-width: 768px) {
+    .content {
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .leftPanel {
+      /* Hide the left panel */
+    }
+    
+    .rightPanel, .rightPanel-reduced, .rightPanel-full {
+      flex-basis: 100%;
+      max-width: 100%; 
+      width: 100%; 
+    }
+  
+    .page-container, .content {
+      padding: 0;
+      margin: 0;
+    }
+  }
