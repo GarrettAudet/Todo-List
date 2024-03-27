@@ -48,6 +48,11 @@ body {
     align-items: center;
 }
 
+.display-between {
+    display: flex;
+    justify-content: space-between;
+}
+
 .logo {
     background-color: var(--accentWhite); 
     font-size: 2.5rem;
@@ -261,12 +266,13 @@ footer {
     display: flex; 
     justify-content: center; 
     align-items: center; 
+    display: none;
 }
 
 .card {
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
     width: 30rem;
-    height: 20rem;
+    height: 30rem;
     border-radius: 15px;
     position: relative;
     overflow: hidden;
@@ -356,17 +362,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: white;
 }
 
-.add-task {
+.insert-task {
     border: 1px solid var(--text-color);
 }
 
-.add-task:hover {
+.insert-task:hover {
     background-color: var(--text-color);
     color: white;
 }
 
-.calendar, .low, .medium, .high, .add-task {
+.calendar, .low, .medium, .high, .add-task, .insert-task {
     border-radius: 4px;
     padding: 2px 4px;
     font-weight: 700;
 }
+
+.exit-task {
+    cursor: pointer;
+}
+

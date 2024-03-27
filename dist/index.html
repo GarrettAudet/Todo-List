@@ -10,25 +10,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class = "overlay-new centre">
-        <div class = "card flex-column">
-            <div class = "card-header centered-flex">Create A New Task...</div>
-            <div class = "card-container flex-column">
-                <textarea class = "task-title" placeholder = "Title: Name of Task" required></textarea>
-                <textarea class = "task-details" placeholder = "Details: Internet, Phone, Rent" required></textarea>
+    <div class="overlay-new centre">
+        <div class="card flex-column">
+            <div class="card-header display-between centered-flex">
+            <p>Create A New Task...</p>
+            <div class = "exit-task" >X</div>
             </div>
-            <div class = "card-footer centered-flex">
-                <div class = "footer-item centered-flex">
+            <div class="card-container flex-column">
+                <textarea class="task-title" placeholder="Title: Name of Task" required></textarea>
+                <textarea class="task-details" placeholder="Details: Internet, Phone, Rent" required></textarea>
+            </div>
+            <div class="card-footer centered-flex">
+                <div class="footer-item centered-flex">
                     <div>Due Date: </div>
-                    <input class = "calendar" type = "date" required>
+                    <input class="calendar" type="date" required>
                 </div>
-                <div class = "footer-item centered-flex">
+                <div class="footer-item centered-flex">
                     <div>Priority: </div>
-                    <label class = "low">Low</label>
-                    <label class = "medium">Medium</label>
-                    <label class = "high">High</label>
+                    <label class="low">Low</label>
+                    <label class="medium">Medium</label>
+                    <label class="high">High</label>
                 </div>
-                <div class = "add-task">Add Task</div>
+                <div class="insert-task">Add Task</div>
             </div>
         </div>
     </div>
@@ -120,7 +123,7 @@
                                 </g>
                             </g>
                         </svg>
-                        <p class = "add-project">Add Project</p>
+                        <p class = "add-task">Add Task</p>
                     </button>
                 </div>
             </div>
