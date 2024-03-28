@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 class TaskManager {
     constructor() {
         this.initializeHighlighting();
@@ -7,7 +9,6 @@ class TaskManager {
         this.removeTask();
         this.addNewTask();
         this.removeListedTask();
-        this.ListedTaskHTML();
     }
 
     initializeHighlighting() {
@@ -113,8 +114,8 @@ class TaskManager {
             });
         });
     };
-
-    ListedTaskHTML(priority, title, details, dueDate, taskDiv) {
+    ListedTaskHTML = (priority, title, details, dueDate, taskDiv) => {
+        console.log(taskDiv);
         if (priority === "low") {
             taskDiv.classList.add('low-task')
 
