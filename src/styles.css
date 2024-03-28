@@ -293,11 +293,22 @@ button {
 
 .task {
     box-sizing: border-box;
-    border-left: 5px solid var(--low-priority);
     border-radius: 8px;
     padding: 15px;
     background-color: white;
     width: calc(100% - 15px);
+}
+
+.task.low-task {
+    border-left: 5px solid var(--low-priority);
+}
+
+.task.medium-task {
+    border-left: 5px solid var(--medium-priority);
+}
+
+.task.high-task {
+    border-left: 5px solid var(--high-priority);
 }
 
 h3, .task p, .task-content, .task-due-date {
@@ -429,6 +440,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: var(--high-priority);
 }
 
+.task-list {
+    gap: 15px;
+}
+
 .insert-task {
     border: 1px solid var(--text-color);
 }
@@ -436,6 +451,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .insert-task:hover {
     background-color: var(--text-color);
     color: white;
+}
+
+form {
+    background-color: white;
 }
 
 .github-icon {

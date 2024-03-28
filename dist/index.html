@@ -20,22 +20,24 @@
                 <textarea class="task-title" placeholder="Title: Name of Task" required></textarea>
                 <textarea class="task-details" placeholder="Details: Internet, Phone, Rent" required></textarea>
             </div>
-            <div class="card-footer centered-flex">
-                <div class="footer-item centered-flex">
-                    <div>Due: </div>
-                    <input class="calendar" type="date" required>
+            <form id = "task-form">
+                <div class="card-footer centered-flex">
+                    <div class="footer-item centered-flex">
+                        <div>Due: </div>
+                        <input class="calendar" type="date" required>
+                    </div>
+                    <div class="footer-item centered-flex">
+                        <div>Priority: </div>
+                        <input type="radio" id="low" name="priority" value="low" class="priority-radio" hidden>
+                        <label for="low" class="priority-label low">Low</label>
+                        <input type="radio" id="medium" name="priority" value="medium" class="priority-radio" hidden>
+                        <label for="medium" class="priority-label medium">Medium</label>
+                        <input type="radio" id="high" name="priority" value="high" class="priority-radio" hidden>
+                        <label for="high" class="priority-label high">High</label>
+                    </div>               
+                    <div class="insert-task">Add Task</div>
                 </div>
-                <div class="footer-item centered-flex">
-                    <div>Priority: </div>
-                    <input type="radio" id="low" name="priority" value="low" class="priority-radio" hidden>
-                    <label for="low" class="priority-label low">Low</label>
-                    <input type="radio" id="medium" name="priority" value="medium" class="priority-radio" hidden>
-                    <label for="medium" class="priority-label medium">Medium</label>
-                    <input type="radio" id="high" name="priority" value="high" class="priority-radio" hidden>
-                    <label for="high" class="priority-label high">High</label>
-                </div>               
-                <div class="insert-task">Add Task</div>
-            </div>
+            </form>
         </div>
     </div>
     <div class = "page-container">
@@ -54,7 +56,7 @@
                             L17.63,5.047c0.276-0.273,0.276-0.72,0-0.994L16.145,2.571z"/>
                     </g>
                 </svg>
-                <span>What</span>
+                <span>What</span>+
                 <div>ToDo</div>
             </div>
             <div class = "flex centre">
@@ -118,14 +120,16 @@
             </div>
             <div class = "rightPanel rightPanel-reduced">
                 <h1>All Tasks</h1>
-                <div class = "task centered-flex display-between">
-                    <div class = "task-content centered-flex">
-                        <h3>Clean House</h3>
-                        <p>I need to do vacuum, sweeping, and dusting</p>
-                    </div>
-                    <div class = "task-due-date centered-flex">
-                        <label for="task-due">14/03/2024</label>
-                        <i class="fa-solid fa-trash"></i>
+                <div class = "task-list flex-column">
+                    <div class = "task centered-flex display-between low-task">
+                        <div class = "task-content centered-flex">
+                            <h3>Clean House</h3>
+                            <p>I need to do vacuum, sweeping, and dusting</p>
+                        </div>
+                        <div class = "task-due-date centered-flex">
+                            <label for="task-due">2024-03-27</label>
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
                     </div>
                 </div>
             </div>

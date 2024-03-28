@@ -5,6 +5,7 @@ class TaskManager {
         this.menuOverview();
         this.appendProject();
         this.removeTask();
+        this.addNewTask();
         this.removeListedTask();
     }
 
@@ -79,6 +80,78 @@ class TaskManager {
             displayToggle.style.display = "none";
         });
     }
+
+    addNewTask() {
+        const insertTask = document.querySelector('.insert-task');
+        document.querySelector('.insert-task').addEventListener('click', function() {
+            // Prevent default form submission if using a <form> element
+            event.preventDefault();
+        
+            // Create a new task div and populate it with values from the form
+            const taskDiv = document.createElement('div');
+            taskDiv.className = 'task centered-flex display-between';
+        
+            // Assuming you have containers to place the title and details
+            const title = document.querySelector('.task-title').value;
+            const details = document.querySelector('.task-details').value;
+            const dueDate = document.querySelector('.calendar').value;
+            const priority = document.querySelector('input[name="priority"]:checked').value;
+
+            console.log(priority);
+
+            if (priority === "low") {
+                taskDiv.classList.add('low-task')
+                taskDiv.innerHTML = `
+                    <div class="task-content centered-flex">
+                        <h3>${title}</h3>
+                        <p>${details}</p>
+                     </div>
+                    <div class="task-due-date centered-flex">
+                        <label for="task-due">${dueDate}</label>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                `;
+
+            } else if (priority === "medium") {
+                taskDiv.classList.add('medium-task')
+                taskDiv.innerHTML = `
+                <div class="task-content centered-flex">
+                    <h3>${title}</h3>
+                    <p>${details}</p>
+                 </div>
+                <div class="task-due-date centered-flex">
+                    <label for="task-due">${dueDate}</label>
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            `;
+                
+            } else if (priority === "high") {
+                taskDiv.classList.add('high-task')
+                taskDiv.innerHTML = `
+                <div class="task-content centered-flex">
+                    <h3>${title}</h3>
+                    <p>${details}</p>
+                 </div>
+                <div class="task-due-date centered-flex">
+                    <label for="task-due">${dueDate}</label>
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            `;
+
+            }
+                
+            // Insert the new task into the document
+            document.querySelector('.task-list').appendChild(taskDiv);
+        
+            // Reset the form fields to their default values
+            document.getElementById('task-form').reset();
+        
+            // Add event listener to the new trash icon
+            taskDiv.querySelector('.fa-trash').addEventListener('click', function() {
+                taskDiv.remove();
+            });
+        });
+    };
 
     removeListedTask() {
         const deleteTaskIcon = document.querySelectorAll('.fa-trash');
