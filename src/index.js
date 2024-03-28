@@ -7,6 +7,7 @@ class TaskManager {
         this.removeTask();
         this.addNewTask();
         this.removeListedTask();
+        this.ListedTaskHTML();
     }
 
     initializeHighlighting() {
@@ -83,7 +84,7 @@ class TaskManager {
 
     addNewTask() {
         const insertTask = document.querySelector('.insert-task');
-        document.querySelector('.insert-task').addEventListener('click', function() {
+        insertTask.addEventListener('click', (event) => {
             // Prevent default form submission if using a <form> element
             event.preventDefault();
         
@@ -97,48 +98,8 @@ class TaskManager {
             const dueDate = document.querySelector('.calendar').value;
             const priority = document.querySelector('input[name="priority"]:checked').value;
 
-            console.log(priority);
-
-            if (priority === "low") {
-                taskDiv.classList.add('low-task')
-                taskDiv.innerHTML = `
-                    <div class="task-content centered-flex">
-                        <h3>${title}</h3>
-                        <p>${details}</p>
-                     </div>
-                    <div class="task-due-date centered-flex">
-                        <label for="task-due">${dueDate}</label>
-                        <i class="fa-solid fa-trash"></i>
-                    </div>
-                `;
-
-            } else if (priority === "medium") {
-                taskDiv.classList.add('medium-task')
-                taskDiv.innerHTML = `
-                <div class="task-content centered-flex">
-                    <h3>${title}</h3>
-                    <p>${details}</p>
-                 </div>
-                <div class="task-due-date centered-flex">
-                    <label for="task-due">${dueDate}</label>
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            `;
-                
-            } else if (priority === "high") {
-                taskDiv.classList.add('high-task')
-                taskDiv.innerHTML = `
-                <div class="task-content centered-flex">
-                    <h3>${title}</h3>
-                    <p>${details}</p>
-                 </div>
-                <div class="task-due-date centered-flex">
-                    <label for="task-due">${dueDate}</label>
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            `;
-
-            }
+            // Insert HTML
+            this.ListedTaskHTML(priority, title, details, dueDate, taskDiv);
                 
             // Insert the new task into the document
             document.querySelector('.task-list').appendChild(taskDiv);
@@ -152,6 +113,29 @@ class TaskManager {
             });
         });
     };
+
+    ListedTaskHTML(priority, title, details, dueDate, taskDiv) {
+        if (priority === "low") {
+            taskDiv.classList.add('low-task')
+
+        } else if (priority === "medium") {
+            taskDiv.classList.add('medium-task')
+            
+        } else if (priority === "high") {
+            taskDiv.classList.add('high-task')
+        }
+
+        taskDiv.innerHTML = `
+        <div class="task-content centered-flex">
+            <h3>${title}</h3>
+            <p>${details}</p>
+         </div>
+        <div class="task-due-date centered-flex">
+            <label for="task-due">${dueDate}</label>
+            <i class="fa-solid fa-trash"></i>
+        </div>
+    `;
+    }
 
     removeListedTask() {
         const deleteTaskIcon = document.querySelectorAll('.fa-trash');
