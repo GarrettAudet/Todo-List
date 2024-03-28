@@ -89,6 +89,10 @@ body {
     background: var(--task-background);
 }
 
+.rightPanel p {
+    margin: 0px;
+}
+
 .rightPanel-reduced, .rightPanel-full {
     padding: 10px 30px;
 }
@@ -294,6 +298,16 @@ button {
     padding: 15px;
     background-color: white;
     width: 90%;
+}
+
+h3, .task p, .task-content, .task-due-date {
+    margin: 0px;
+    font-size: var(--font-size-regular);
+    gap: 10px;
+}
+
+.fa-solid:hover {
+    color: var(--accentDark);
 }
 
 /* Footer */
