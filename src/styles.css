@@ -182,9 +182,7 @@ body {
 
 .fa-moon {
     position: absolute;
-    top: 5%;
-    transform: translate(-40%, -40%);
-    right: 26px;
+    right: 30px;
     font-size: 1rem; 
     color: white; 
     display: none; 

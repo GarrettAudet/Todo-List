@@ -5,6 +5,7 @@ class TaskManager {
         this.menuOverview();
         this.appendProject();
         this.removeTask();
+        this.removeListedTask();
     }
 
     initializeHighlighting() {
@@ -78,6 +79,21 @@ class TaskManager {
             displayToggle.style.display = "none";
         });
     }
+
+    removeListedTask() {
+        const deleteTaskIcon = document.querySelectorAll('.fa-trash');
+
+        deleteTaskIcon.forEach(function(deleteTaskIcon) {
+            deleteTaskIcon.addEventListener('click', function() {
+                const taskContainer = this.closest('.task');
+                console.log('Delete');
+
+                if (taskContainer) {
+                    taskContainer.remove();
+                }
+            });
+        });
+    };
 }
 
 document.addEventListener('DOMContentLoaded', () => {
