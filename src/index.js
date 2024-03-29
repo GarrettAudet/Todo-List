@@ -11,6 +11,7 @@ class TaskManager {
         this.addNewTask();
         this.setupEventDelegation();
         this.setDefaultCategory();
+        this.getActiveCategory();
     }
 
     // Switches the Theme of the Webpage Based on User Selection
@@ -148,17 +149,26 @@ class TaskManager {
             const dueDate = document.querySelector('.calendar').value;
             const priority = document.querySelector('input[name="priority"]:checked').value;
 
-            // Create a Task Item to Store 
-            const task = { title, details, dueDate, priority, element: taskDiv };
+            // Generate a Unique ID
+            const taskID = Date.now();
+
+            // Generate a Unique ID
+            const task = {id: taskID, title, details, dueDate, priority, element: taskDiv}
 
             //Insert HTML 
             this.ListedTaskHTML(priority, title, details, dueDate, taskDiv);
 
+            //Assign ID
+            taskDiv.dataset.taskID = taskID;
+
             // Push the Tasks to the Array
             this.tasks.push(task);
 
+            // Retrieve Current Selection
+            const activeCategory = this.getActiveCategory();
+
             // Immediately render tasks
-            this.renderTasks('all');
+            this.renderTasks(activeCategory);
 
             // Reset the form fields to their default values
             document.getElementById('task-form').reset();
@@ -190,37 +200,6 @@ class TaskManager {
     `;
     }
 
-    // Displays Tasks Based on User Selection
-    taskCategoryInsert(dueDate, taskDiv) {
-        const today = new Date();
-        const next7Days = add(today, { days: 7 });
-
-        // Clone the taskDiv for appending to multiple sections if needed
-        const taskForToday = taskDiv.cloneNode(true);
-        const taskForWeek = taskDiv.cloneNode(true);
-
-        const addTrashListener = (element) => {
-            element.querySelector('.fa-trash').addEventListener('click', function () {
-                element.remove();
-            });
-        };
-
-        if (isToday(dueDate)) {
-            const taskForToday = taskDiv.cloneNode(true); // Clone the taskDiv
-            addTrashListener(taskForToday); // Add the event listener to the clone
-            document.querySelector('.home-today .tasks-container').appendChild(taskForToday);
-        }
-    
-        if (isWithinInterval(dueDate, { start: today, end: next7Days })) {
-            const taskForWeek = taskDiv.cloneNode(true); // Clone the taskDiv
-            addTrashListener(taskForWeek); // Add the event listener to the clone
-            document.querySelector('.home-week .tasks-container').appendChild(taskForWeek);
-        }
-
-        // Always append to All Tasks section
-        document.querySelector('.home-all-task .tasks-container').appendChild(taskDiv);
-    }
-
     // Attach Event Listener to Parent
     setupEventDelegation() {
         const taskList = document.querySelector('.task-list');
@@ -229,15 +208,31 @@ class TaskManager {
             if (event.target.classList.contains('fa-trash')) {
                 const taskElement = event.target.closest('.task');
                 if (taskElement) {
+                    const taskID = taskElement.dataset.taskID;
+    
                     // Remove the task from the internal tasks array
-                    this.tasks = this.tasks.filter(task => task.element !== taskElement);
-
+                    this.tasks = this.tasks.filter(task => task.id.toString() !== taskID);
+    
                     // Remove the task element from the DOM
                     taskElement.remove();
+    
+                    // Re-render the tasks to reflect the deletion accurately
+                    const activeCategory = this.getActiveCategory();
+                    this.renderTasks(activeCategory);
                 }
             }
         });
     }
+
+    getActiveCategory() {
+        if (document.querySelector('.home-today').classList.contains('highlight')) {
+            return 'today';
+        } else if (document.querySelector('.home-week').classList.contains('highlight')) {
+            return 'next7Days';
+        }
+        return 'all';  // Default to 'all' if no other category is highlighted
+    }
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {

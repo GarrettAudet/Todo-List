@@ -327,6 +327,7 @@ footer {
     background-color: var(--accentWhite);
     border-top: 2px solid var(--text-color);
     gap: 10px;
+    color: var(--text-color);
 }
 
 .footer-item {
