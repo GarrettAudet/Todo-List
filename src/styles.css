@@ -2,10 +2,15 @@
 :root {
     --accentOrange: rgb(206,129,66);
     --accentWhite: #f2f3f5;
+    --white: #FFFFFF;
+    --text-color-alternate: #374958;
     --accentWhiteDark: #e1e3e6;
     --accentDark: #E2B38D;
     --accentLight: #EAC9AE;
+    --label-color: #374958;
+    --svg-dark: #212121;
     --text-color: #374958;
+    --text-color2: #374958;
     --task-background: #ddd;
     --font-size-header: 24px;
     --font-size-subheader: 17px;
@@ -31,6 +36,16 @@ html, body {
 body {
     font-family: "Alata";
     margin: 0px;
+}
+
+.dark-theme {
+    background: #31363F;
+    --background-color: var(--text-color);
+    --accentWhite: #222831;
+    --text-color: white;
+    --text-color-alternate: white;
+    --svg-dark: white;
+    --task-background: #76ABAE;
 }
 
 /* Utility Classes */
@@ -230,7 +245,7 @@ body.dark-theme .toggle-ball {
 }
 
 .card-container, .card-footer {
-    background-color: white;
+    background-color: var(--white);
 }
 
 h1, h2 {
@@ -335,6 +350,14 @@ footer {
     align-items: center; 
 }
 
+.labels {
+    color: var(--text-color);
+}
+
+.footer-retain-color {
+    color: var(--label-color);
+}
+
 .footer-item input {
     margin: 0;
 }
@@ -342,7 +365,7 @@ footer {
 .card-footer {
     height: 10%;
     font-size: var(--font-size-regular);
-    color: var(--text-color);
+    color: var(--text-color-alternate);
     justify-content: space-between;
     gap: 5px;
 }
@@ -393,7 +416,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .low:hover, .low:checked {
     background-color: var(--low-priority);
-    color: white;
 }
 
 .medium {
@@ -402,7 +424,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .medium:hover {
     background-color: var(--medium-priority);
-    color: white;
 }
 
 .high {
@@ -411,7 +432,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .high:hover {
     background-color: var(--high-priority);
-    color: white;
+}
+
+.low:hover, .medium:hover, .high:hover {
+    color: var(--white);
 }
 
 .low {
@@ -446,11 +470,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .insert-task {
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--label-color);
 }
 
 .insert-task:hover {
-    background-color: var(--text-color);
+    background-color: var(--label-color);
     color: white;
 }
 
