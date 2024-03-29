@@ -9,7 +9,6 @@ class TaskManager {
         this.appendProject();
         this.removeTask();
         this.addNewTask();
-        this.removeListedTask();
         this.setupEventDelegation();
         this.setDefaultCategory();
     }
