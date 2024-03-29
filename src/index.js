@@ -239,22 +239,6 @@ class TaskManager {
             }
         });
     }
-
-    // Deletes the Task 
-    removeListedTask() {
-        const deleteTaskIcon = document.querySelectorAll('.fa-trash');
-
-        deleteTaskIcon.forEach(function(deleteTaskIcon) {
-            deleteTaskIcon.addEventListener('click', function() {
-                const taskContainer = this.closest('.task');
-                console.log('Delete');
-
-                if (taskContainer) {
-                    taskContainer.remove();
-                }
-            });
-        });
-    };
 }
 
 document.addEventListener('DOMContentLoaded', () => {
