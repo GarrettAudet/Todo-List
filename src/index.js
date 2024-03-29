@@ -10,6 +10,8 @@ class TaskManager {
         this.removeTask();
         this.addNewTask();
         this.removeListedTask();
+        this.setupEventDelegation();
+        this.setDefaultCategory();
     }
 
     // Switches the Theme of the Webpage Based on User Selection
@@ -80,6 +82,15 @@ class TaskManager {
         });
     }
 
+    // Selects the All Tasks Button by Default
+    setDefaultCategory() {
+        const allTasksButton = document.querySelector('.home-all-task');
+        if (allTasksButton) {
+            allTasksButton.click();
+            allTasksButton.classList.add('highlight');
+        }
+    }
+
     // Facilitates the Addition of a New Task Pop-Up
     appendProject() {
         const addTask = document.querySelector('.project-button');
@@ -147,6 +158,9 @@ class TaskManager {
             // Push the Tasks to the Array
             this.tasks.push(task);
 
+            // Immediately render tasks
+            this.renderTasks('all');
+
             // Reset the form fields to their default values
             document.getElementById('task-form').reset();
         });
@@ -206,6 +220,24 @@ class TaskManager {
 
         // Always append to All Tasks section
         document.querySelector('.home-all-task .tasks-container').appendChild(taskDiv);
+    }
+
+    // Attach Event Listener to Parent
+    setupEventDelegation() {
+        const taskList = document.querySelector('.task-list');
+
+        taskList.addEventListener('click', event => {
+            if (event.target.classList.contains('fa-trash')) {
+                const taskElement = event.target.closest('.task');
+                if (taskElement) {
+                    // Remove the task from the internal tasks array
+                    this.tasks = this.tasks.filter(task => task.element !== taskElement);
+
+                    // Remove the task element from the DOM
+                    taskElement.remove();
+                }
+            }
+        });
     }
 
     // Deletes the Task 
